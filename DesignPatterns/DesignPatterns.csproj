@@ -9,5 +9,9 @@
     <Folder Include="Creational\" />
     <Folder Include="Structural\" />
     <Folder Include="Behavioral\Mediator\" />
+    <Folder Include="Behavioral\Command\" />
+    <Folder Include="Behavioral\Command\Repository\" />
+    <Folder Include="Behavioral\Command\Model\" />
+    <Folder Include="Behavioral\Command\Abstractions\" />
   </ItemGroup>
 </Project>
