@@ -13,7 +13,8 @@ namespace ConsoleApp
         static async Task Main(string[] args)
         {
 
-            CommandTest();
+            //CommandTest();
+            await MediatorTest();
         }
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace ConsoleApp
         /// <summary>
         /// Test for the implementation of the mediator pattern
         /// </summary>
-        private async static void MediatorTest()
+        private async static Task MediatorTest()
         {
             //create mediator
             Cordinator cordinator = new Cordinator();

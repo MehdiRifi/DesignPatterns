@@ -9,7 +9,7 @@ namespace DesignPatterns.Behavioral.Mediator
     /// Cordinator, handle the communication (interaction)
     /// between components (colleagues)
     /// </summary>
-    public class Cordinator : AbstractCordinator
+    public class Cordinator : ICordinator
     {
         private IList<Drone> drones;
 
@@ -41,7 +41,7 @@ namespace DesignPatterns.Behavioral.Mediator
         /// <summary>
         /// Dispatch the message to the appropriate receiver
         /// </summary>
-        public override void Send(int x, int y, Drone drone)
+        public void Send(int x, int y, Drone drone)
         {
             drones.Where(d => d != drone).ToList().ForEach((d) =>
             {

@@ -6,7 +6,7 @@ namespace DesignPatterns.Behavioral.Mediator
     /// </summary>
     public abstract class Drone
     {
-        public AbstractCordinator Cordinator { get; set; }
+        public ICordinator Cordinator { get; set; }
         public string Name { get; set; }
         /// <summary>
         /// X cordinate
