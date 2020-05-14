@@ -15,10 +15,11 @@ namespace DesignPatterns.Behavioral.Iterator
                 return Childs != null && Childs.Count > 0;
             }
         }
-        public TreeItem(string name)
+        public TreeItem(string name, params TreeItem[] items)
         {
             Name = name;
             Childs = new List<TreeItem>();
+            AddChilds(items);
         }
         public void AddChilds(params TreeItem[] items)
         {
