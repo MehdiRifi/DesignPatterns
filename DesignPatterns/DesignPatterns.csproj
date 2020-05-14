@@ -15,5 +15,6 @@
     <Folder Include="Behavioral\Command\Abstractions\" />
     <Folder Include="Behavioral\Iterator\" />
     <Folder Include="Behavioral\Iterator\Collection\" />
+    <Folder Include="Behavioral\Iterator\Iterator\" />
   </ItemGroup>
 </Project>
