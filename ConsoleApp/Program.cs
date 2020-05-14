@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using DesignPatterns.Behavioral.Command;
 using DesignPatterns.Behavioral.Command.Repository;
+using DesignPatterns.Behavioral.Iterator;
 using DesignPatterns.Behavioral.Mediator;
 
 namespace ConsoleApp
@@ -14,7 +16,8 @@ namespace ConsoleApp
         {
 
             //CommandTest();
-            await MediatorTest();
+            //await MediatorTest();
+            IteratorTest();
         }
 
         /// <summary>
@@ -53,7 +56,9 @@ namespace ConsoleApp
                 await Task.Delay(1000);
             }
         }
-
+        /// <summary>
+        /// Test for the implementation of the command pattern
+        /// </summary>
         private static void CommandTest()
         {
             ITaskReceiver taskRepository = new TaskReceiver();
@@ -73,6 +78,55 @@ namespace ConsoleApp
             taskManager.Execute(displayAllTasks);
 
 
+        }
+
+        private static void IteratorTest()
+        {
+            //create tree
+            var tree = new List<TreeItem>();
+            var d = new TreeItem("D");
+            var e = new TreeItem("E");
+            var f = new TreeItem("F");
+            var c = new TreeItem("C", f);
+            var b = new TreeItem("B", c, d);
+            var a = new TreeItem("A", b, e);
+
+            b.Parent = a;
+            c.Parent = b;
+            f.Parent = c;
+            d.Parent = b;
+            e.Parent = a;
+
+            tree.Add(a);
+            tree.Add(b);
+            tree.Add(c);
+            tree.Add(d);
+            tree.Add(e);
+            tree.Add(f);
+            /*
+            *               1- A
+            *                 / \
+            *                /   \
+            *            2- B     E -6
+            *              / \
+            *             /   \ 
+            *         3- C     D -5
+            *           /   
+            *          /
+            *      4- F 
+             */
+
+            //create collection
+            ITreeCollection treeCollection = new Tree(tree);
+
+            //create iterator
+            IIterator<TreeItem> iterator = treeCollection.GetDepthFirstIterator();
+
+            while (iterator.HasMore())
+            {
+                var item = iterator.Next();
+                Console.WriteLine(item.Name);
+            }
         }
     }
 }
