@@ -11,8 +11,7 @@ namespace ConsoleApp
 {
     class Program
     {
-        private static Timer timer;
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
 
             //CommandTest();
